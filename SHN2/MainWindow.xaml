@@ -19,42 +19,55 @@
                 <MenuItem Header="New"></MenuItem>
             </MenuItem>
         </Menu>
-        <Grid DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Style="{StaticResource HeaderLabelStyle}">Preview</Label>
-                <Border Grid.Row="1" BorderThickness="3" BorderBrush="Black"></Border>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource HeaderLabelStyle}">Preview</Label>
+                    <Border Grid.Row="1" BorderThickness="3" BorderBrush="Black"></Border>
+                </Grid>
+                <GridSplitter Grid.Row="1" Grid.Column="0" Height="5" HorizontalAlignment="Stretch" Style="{StaticResource SplitterStyle}"></GridSplitter>
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+                    
+                    <Label Style="{StaticResource HeaderLabelStyle}">
+                        HyperNet Tree View
+                    </Label>
+                    <TreeView BorderThickness="0">
+                        <TreeViewItem Header="Root" IsExpanded="True">
+                            <TreeViewItem Header="Layer1"></TreeViewItem>
+                            <TreeViewItem Header="Layer2"></TreeViewItem>
+                            <TreeViewItem Header="Layer3"></TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </StackPanel>
             </Grid>
-            <GridSplitter Grid.Row="1" Grid.Column="0" Height="5" HorizontalAlignment="Stretch" Style="{StaticResource SplitterStyle}"></GridSplitter>
-            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
-                <Label Style="{StaticResource HeaderLabelStyle}">
-                    HyperNet Tree View
-                </Label>
-                <TreeView BorderThickness="0">
-                    <TreeViewItem Header="Root" IsExpanded="True">
-                        <TreeViewItem Header="Layer1"></TreeViewItem>
-                        <TreeViewItem Header="Layer2"></TreeViewItem>
-                        <TreeViewItem Header="Layer3"></TreeViewItem>
-                    </TreeViewItem>
-                </TreeView>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Background="#C8C8C8"></StackPanel>
-        </Grid>
-        <Grid Name="MainGrid">
-            
+
+            <GridSplitter Grid.Row="0" Grid.Column="1" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Style="{StaticResource SplitterStyle}"></GridSplitter>
+    
+            <Grid Grid.Column="2" Grid.Row="0" Name="MainGrid" ShowGridLines="True">
+                <Border BorderThickness="3" BorderBrush="Black"></Border>
+                <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                    <Label HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="30">HyperNet Will Be Here</Label>
+                </ScrollViewer>
+            </Grid>
         </Grid>
     </DockPanel>
-    
+
 </Window>
